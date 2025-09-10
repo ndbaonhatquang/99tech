@@ -1,0 +1,46 @@
+{
+  "name": "problem-5-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc -p .",
+    "start": "tsx src/app.ts",
+    "migrate:run": "typeorm-ts-node-commonjs migration:run -d src/databases/data-source.ts",
+    "migrate:revert": "typeorm-ts-node-commonjs migration:revert -d src/databases/data-source.ts",
+    "seed": "tsx src/databases/seeds/seed-resources.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "joi": "^18.0.1",
+    "morgan": "^1.10.1",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.3.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "typeorm": "^0.3.26",
+    "typeorm-ts-node-commonjs": "^0.3.20",
+    "typescript": "^5.9.2"
+  }
+}
