@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import type Joi from "joi";
-import { HttpError } from "../../common/http-error.ts";
+import { HttpError } from "../../utils/http-error.ts";
 
 type Schemas = {
   body?: Joi.ObjectSchema;

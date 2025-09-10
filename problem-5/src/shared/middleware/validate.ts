@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import type { ZodSchema } from "zod";
-import { HttpError } from "../../common/http-error.ts";
+import { HttpError } from "../../utils/http-error.ts";
 
 type Parts = "body" | "query" | "params";
 

@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import { Resource } from "../../../databases/entities/resource.entity.ts";
 import { ResourceService } from "../services/resource.service.ts";
-import { NotFoundError } from "../../../common/http-error.ts";
+import { NotFoundError } from "../../../utils/http-error.ts";
 import type { ListFilters } from "../repositories/resource.repository.ts";
 
 type ListQuery = {
@@ -38,11 +38,7 @@ export class ResourceController {
     });
   };
 
-  getById = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
+  getById = async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
 
     if (!id) return next(new NotFoundError("Not found"));
@@ -51,11 +47,7 @@ export class ResourceController {
     return res.json(row);
   };
 
-  update = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
+  update = async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
     const { name, description, category } = req.body as Partial<Resource>;
 
@@ -75,11 +67,7 @@ export class ResourceController {
     return res.json(saved);
   };
 
-  delete = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
+  delete = async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
     const ok = await this.service.delete(Number(id));
     if (!ok) return next(new NotFoundError("Not found"));
